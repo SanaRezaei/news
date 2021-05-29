@@ -2,7 +2,7 @@
 
 class Database {
     // Attributs
-    private static $dbName = 'exercice_3'; // Nom de la BDD
+    private static $dbName = 'news'; // Nom de la BDD
     private static $dbHost = 'localhost'; // Nom de l'hôte
     private static $port = '8889'; // ou '8889' 
     private static $dbUsername = 'root'; // Nom d'utilisateur MySQL
