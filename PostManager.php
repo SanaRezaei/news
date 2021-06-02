@@ -43,7 +43,7 @@ class PostManager {
     }
 
     public function delete(int $id){
-        $this->db-> query ("DELETE * FROM posts WHERE id=$id");
+        $this->db->query ("DELETE FROM posts WHERE id=$id");
     }
 }
 
