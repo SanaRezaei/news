@@ -1,9 +1,22 @@
 <?php 
 
 class Post {
-    private $id;
+    private $id = 10;
     private $titre;
     private $contenu;   
+
+    public function hydrate(array $donnees){
+        foreach ($donnees as $cle => $valeur){
+            $methode = 'set'.ucfirst($cle);
+            if (method_exists($this, $methode)){
+                $this->$methode($valeur);
+            }
+        }
+    }
+
+    public function __construct(array $donnees) {
+        $this->hydrate($donnees);
+    }
 
     /**
      * Get the value of id
@@ -51,7 +64,7 @@ class Post {
      */ 
     public function setTitre($titre)
     {
-        if (is_string($titre)){
+        if (!is_string($titre)){
             echo "title must be string";
             return $this;
         }
@@ -66,7 +79,7 @@ class Post {
      */ 
     public function setContenu($contenu)
     {
-        if (is_string($contenu)){
+        if (!is_string($contenu)){
             echo "content must be string";
             return $this;
         }
@@ -74,19 +87,13 @@ class Post {
         return $this;
     }
 
-    public function hydrate(array $donnees){
-        foreach ($donnees as $cle => $valeur){
-            $methode = 'set'.ucfirst($cle);
-            if (method_exists($this, $methode)){
-                $this->$methode($valeur);
-            }
-        }
-    }
 
-    function __construct(array $donnees) {
-        $this->hydrate($donnees);
-    }
 }
+
+// class Test {
+//     public $name = "sana";
+//     public $age = 10;
+// }
 
 
 ?>

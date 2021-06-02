@@ -16,11 +16,17 @@ class PostManager {
     }
 
     public function addNews(Post $post){
-        
+        echo "add news called";
+        $title = $post->getTitre();
+        $content = $post->getContenu();
+        $sql = "INSERT INTO posts (title,content) VALUES ('$title','$content')";
+        $res = $this->db->query ($sql);
+        return $res; 
     }
 
     public function get(int $id){
-        
+        $res = $this->db-> query ("SELECT * FROM posts WHERE id=$id");
+        return $res;
     }
 
     public function getAll(){
@@ -37,7 +43,7 @@ class PostManager {
     }
 
     public function delete(int $id){
-        
+        $this->db-> query ("DELETE * FROM posts WHERE id=$id");
     }
 }
 

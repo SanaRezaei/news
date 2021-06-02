@@ -10,7 +10,6 @@
 <body>
 <div class="container">
 <?php
-        echo "log00";
         include "./PostManager.php";
         $manager = new PostManager();
         $posts = $manager->getAll();
