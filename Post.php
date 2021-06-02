@@ -1,7 +1,7 @@
 <?php 
 
 class Post {
-    private $id = 10;
+    private $id;
     private $titre;
     private $contenu;   
 
@@ -86,14 +86,5 @@ class Post {
         $this->contenu = $contenu;
         return $this;
     }
-
-
 }
-
-// class Test {
-//     public $name = "sana";
-//     public $age = 10;
-// }
-
-
 ?>

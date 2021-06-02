@@ -16,7 +16,6 @@ class PostManager {
     }
 
     public function addNews(Post $post){
-        echo "add news called";
         $title = $post->getTitre();
         $content = $post->getContenu();
         $sql = "INSERT INTO posts (title,content) VALUES ('$title','$content')";
@@ -26,7 +25,7 @@ class PostManager {
 
     public function get(int $id){
         $res = $this->db-> query ("SELECT * FROM posts WHERE id=$id");
-        return $res;
+        return $res->fetch();
     }
 
     public function getAll(){
@@ -38,7 +37,7 @@ class PostManager {
         $title = $post->getTitre();
         $id=$post->getId();
         $content = $post->getContenu();
-        $sql = "UPDATE posts SET title=$title , content=$content  WHERE id=$id";
+        $sql = "UPDATE posts SET title='$title' , content='$content'  WHERE id=$id";
         $this->db->query($sql); 
     }
 
